@@ -22,18 +22,51 @@
 // myPromise.catch((error)=>console.log("received  : "+error));
 
 //using then() to execute 2 promises one by one
-let promise1=new Promise(function(resolve,reject)
+// let promise1=new Promise(function(resolve,reject)
+// {
+//     setTimeout(function()
+//     {
+//         console.log('inside promise1');
+//     },2000);
+//     resolve(true);
+// })
+// let output=promise1.then(()=>{
+//     let promise2=new Promise(function(resolve,reject)
+//     {
+//         resolve('promise2 resolved');
+//     });
+//     return promise2;
+// });
+// output.then((value)=>console.log(" value ="+  value ));
+
+async function func1()
 {
-    setTimeout(function()
+    console.log('babbar');
+    return 7;
+}
+//func1();
+console.log(func1());
+
+async function utility()
+{
+    let delhiMausam=new Promise(function(resolve ,reject)
     {
-        console.log('inside promise1');
-    },2000);
-    resolve(true);
-})
-promise1.then(()=>{
-    let promise2=new Promise(function(resolve,reject)
+                setTimeout(()=>
+                {
+                    resolve('Delhi hot');
+                },1000);
+    })
+
+    let hydMausam=new Promise(function(resolve ,reject)
     {
-        resolve('promise2 resolved');
-    });
-    return promise2;
-}).then((value)=>console.log(" value "+  value ));
+                setTimeout(()=>
+                {
+                    resolve('hydrabad cold');
+                },3000);
+    })
+    let dM=delhiMausam;
+    let hM=hydMausam;
+
+    return[dM,hM];
+}
+console.log(utility());
