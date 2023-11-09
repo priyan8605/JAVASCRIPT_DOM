@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Document</title>
+
 </head>
 <body>
+    <button id="green">green</button>
+    <button id="orange">orange</button>
     <script src="index.js"></script>
+    <script>
+         function outer(color)
+        {
+             function inner()      
+             {
+                document.body.style.backgroundColor=`${color}`;
+             }
+             return inner;
+        }
+    //  document.querySelector('#orange').addEventListener('click',outer("orange"));
+    //  document.querySelector('#green').addEventListener('click',inner("green"));
+//   document.getElementById("orange").onclick=outer("orange");
+//   document.getElementById("green").onclick=outer("green");
+let content1=document.querySelector('#orange');
+let content2=document.querySelector('#green');
+let event1=content1.addEventListener('click',outer('orange'));
+let event2=content2.addEventListener('click',outer('green'))
+      
+
+    </script>
 </body>
 </html>
