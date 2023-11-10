@@ -138,3 +138,4 @@ function makeFunc() {
   }
   const myFunc=makeFunc();//when function is execute it's scope is over
   myFunc();
+  
