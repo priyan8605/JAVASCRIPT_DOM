@@ -54,15 +54,21 @@ function generateRandomNumber()
 
 function generateLowerCase()//gives character between "a"(ascii of "a"=97) to "z"(ascii of "z"=123) 
 {
- String.fromCharCode(getRndInteger(97,23));//String.fromCharcode()coverts 97 and 23 into string
+ return String.fromCharCode(getRndInteger(97,23));//String.fromCharcode()coverts 97 and 23 into string
 
 }
-function generateUpperCase()//gives character between "A"(ascii of "a"=65) to "z"(ascii of "Z"=>91) 
+function generateUpperCase()//gives character between "A"(ascii of "a"=65) to "z"(ascii of "Z"=>90) 
 {
- String.fromCharCode(getRndInteger(65,91));//String.fromCharcode()coverts 65 and 91 into string A and B
+ return String.fromCharCode(getRndInteger(65,90));//String.fromCharcode()coverts 65 and 90 into string A and B
 
-}
+ }
+ const symbols =" ~``!@#%^&*(_+?</>)./";
 function generateSymbol()
 {
-    
+const randNum=getRndInteger(0,symbols.length);//symbols.length is max which gives string length
+return symbols.charAt[randNum];//charAt[randNum] returns the character present at particular index of string symbols
+//const randNum=getRndInteger(0,symbols.length); getRndInteger se jo bhi number milega between 0 and String.length vo particular number is
+//stored in randNum
+//return symbols.charAt[randNum]; number stored in randNum will become the particular index of symbols string and that particular
+//index string we will return
 }
