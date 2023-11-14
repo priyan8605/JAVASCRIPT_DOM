@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="circle1"> </div>
+        <div class="circle2"> </div>
+        <div class="innerContainer">
+            <div class="image">
+                <img src="pri.jpg" alt="">
+            </div>
+            <div class="name">
+                <h2>Priyanshu Singh</h2>
+            </div>
+            <div class="info">
+                <p>Web Developer</p>
+            </div>
+            <div class="media">
+                <button onclick="openmodal()">Share my profile</button>
+                <button>Follow me </button>
+            </div>
+        </div>
+    </div>
+    <div class="modal">
+        <div class="modal-header">
+            <h1>Share my Profile</h1>
+            <button onclick="closemodal()">X</button>
+        </div>
+        <div class="border"></div>
+        <h3>Share this via</h3>
+        <div class="icon">
+          
+            <a href="#" class="icon" id="facebook" title="#">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="#" class="icon" id="instagram" title="#">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="#" class="icon" id="twitter" title="#">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a href="#" class="icon" id="github" title="#">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="#" class="icon" id="whatsapp" title="#">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+        </div>
+
+        <div class="overlay" onclick="closemodal()"></div>
+    </div>
+    
+    <script src="https://kit.fontawesome.com/14cb0abfd9.js" crossorigin="anonymous"></script>
+    <script src="index2.js"></script>
+</body>
+
+</html>
