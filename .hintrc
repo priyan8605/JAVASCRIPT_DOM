@@ -9,5 +9,8 @@
     "not firefox <= 118",
     "not ios_saf <= 17",
     "not safari <= 17"
-  ]
+  ],
+  "hints": {
+    "button-type": "off"
+  }
 }

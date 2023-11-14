@@ -1,0 +1,27 @@
+*
+{
+    margin:0 ;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container
+{
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(to top left,violet,rgb(77, 77, 151));
+}
+button > img
+{
+    background-color: transparent;
+   border: none;
+    height: 12px;
+    width: 15px;
+    color: aqua;
+}
+.circle
+{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: gray;
+}
