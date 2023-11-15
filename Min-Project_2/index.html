@@ -10,10 +10,11 @@
     <div class="container">
         <h1>Password GENERATOR</h1>
         <div class="display-container">
-          <input readonly placeholder="Password" class="display" data-passworddisplay>  
-          <button data-copy title="btn">
+          <input readonly placeholder="Password" class="display" data-passworddisplay> 
+          
+          <button data-copy onclick="copyContent()" title="btn">
             <span data-copymsg></span>
-            <img src="copy.jpg" alt="">
+            <i class="fa-regular fa-copy"></i>
           </button>
         </div>
         <div class="input-container">

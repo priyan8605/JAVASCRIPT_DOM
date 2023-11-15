@@ -29,7 +29,7 @@ function handleSlider()
     inputSlider.value=passwordLength;//inputSlider is initialized with passwordLength(i.e. 10)
     lengthDisplay.innerText=passwordLength;//inputSlider is on 10 hence lengthDisplay will also be 10
 }
-handleSlider();
+handleSlider();//ye passwordLength ko user interface or screen prr display krayga
 function setIndicator()//sets color and shadow of strength
 {
 indicator.setAttribute("Class","circle");//inside indicator class circle will be added and styling of class circle is given in "style.css"
@@ -72,3 +72,129 @@ return symbols.charAt[randNum];//charAt[randNum] returns the character present a
 //return symbols.charAt[randNum]; number stored in randNum will become the particular index of symbols string and that particular
 //index string we will return
 }
+
+function clacStrength()//calculates length of passwor
+{
+  // in js we can access checkbox element using id,class or tag name and apply '.checked', '.checked' returns a boolean value
+let hasUpper=false;
+let hasLower=false;
+let hasNum=false;
+let hasSym=false;
+if(uppercasecheck.checked)
+{
+  hasUpper=true; //means checkbox will get tick
+}
+if(lowercasecheck.checked)
+{
+  hasLower=true; //means checkbox will get tick
+}
+if(numbersCheck.checked)
+{
+  hasNum=true; //means checkbox will get tick
+}
+if(symbolCheck.checked)
+{
+  hasSym=true; //means checkbox will get tick
+}
+if(hasUpper && hasLower && (hasNum || hasSym) && passwordLength>=8 ==true)
+{
+  setIndicator("#0f0");
+}
+else if((hasUpper || hasLower) && (hasNum || hasSym) && passwordLength>=8 == true)
+{
+  setIndicator("#ff0")
+}
+else
+{
+  setIndicator("#f00");
+}
+}
+
+async function copyContent()//wil copythe generated password
+{
+  try
+  {
+   // Copy the text inside the text field
+  await navigator.clipboard.writeText(passwordDisplay.value);//writeText() will copy on clipboard api and return a promise
+ // to copy the text with clipboard API we will use the asynchronous writeText() method which accept only one parameter-the text to copy to your clipboard. 
+ //as writeText() method is asynchronous it returns a promise.This promise is resolved if clipboard has been updated successfully and is rejected otherwise
+ //navigator is an object which contains information about browser
+ //navigator object is a property of window object
+  copyMsg.innerText="copied";
+  //alert the copied text
+   await alert("Copied the text: " + passwordDisplay.value);
+  }
+  catch(e)
+  {
+  copyMsg.innerText="Failed";
+  }
+  //to make copy <span></span> visible
+  copyMsg.classList("active");//active class will be added in copyMsg
+  setTimeout(function()
+  {
+    copyMsg.classList.remove("active");
+
+  },2000);
+  //after 2sec active class will be removed
+}
+
+//when we move slider password length will also change hence one eventListener on slider
+//another eventlistener on copy button
+//another listener on generate password button
+
+
+inputSlider.addEventListener('input',function(event)
+{
+  
+   passwordLength=event.target.value;
+   handleSlider();
+  
+   //yha jaise jaise slider aage badhega passwordLength bhi change hote rhega
+})
+
+copyBtn.addEventListener('click',function()
+{
+  if(passwordDisplay.value) //agr passwordDisplay me kuchhvalue pda hoga tbhi copy hoga
+  {
+     copyContent()
+  }
+
+  //or if(passwordLength.length>0){copyContent()}
+
+})
+
+// note that there is 4 checkbox then minimum length of password should be 4
+function handleCheckBoxChange()
+{
+  checkCount=0;//initializing that till now their is no change in checkBox 
+  allCheckBox.forEach(function(checkBox)//each checkbox will be accesed
+  {
+    if(checkBox.checked)//agr checkBox checked hai to checkCount will increment by 1
+    {
+      checkCount=checkCount+1;
+    }
+
+    //special condition:- agr passwordLength is less than checkCount then in that case 
+    //make passwordLength = checkCount
+    if(passwordLength<checkCount)
+    {
+      passwordLength=checkCount;
+      handleSlider();
+    }
+  })
+} 
+//forEach loop ka use krke har ek checkbox ke oopar eventlistener lga denge
+//ki jb bhi koi change(i.e tick or untick) ho to ek function call hoga handleCheckBoxChange()
+allCheckBox.forEach (function(checkbox)
+{
+  //allCheckBox ke and ke hr ek checkbox ko forEach access krega
+   checkbox.addEventListener('change',handleCheckBoxChange);
+} )
+
+generateBtn.addEventListener('click',function()
+{
+//agr sbhi checked box unchecked hai then password will not be generated
+//agr password generate krna hai to kmm se kmm atleast ek checkbox must be  ticked
+//so we will use listener on check box so that we can keep count of how much checkBox we have ticked
+
+})
